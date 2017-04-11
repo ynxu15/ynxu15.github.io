@@ -1,1 +1,36 @@
-baseurl: /ynxu15.github.io
+# Site settings
+name: Less Or More
+email: ynxu15@gmail.com
+author: Steven Xu
+url: https://github.com/ynxu15
+resume_site: https://github.com/ynxu15
+github: https://github.com/ynxu15
+baseurl: "/ynxu15.github.io"
+
+#permalink: /:categories/:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title/
+paginate: 10
+
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+
+github_username: ynxu15
+highlighter: ynxu15
+
+# Build settings
+markdown: kramdown
+
+#baidu_analysis: 94be4b0f9fc5d94cc0d0415ea6761ae9
+
+FB:
+  comments :
+    #provider : duoshuo
+    #duoshuo:
+    #    short_name : 
+    provider : disqus
+    disqus :
+        short_name : https-ynxu15-github-io
+    # facebook :
+    #   appid : 123
+    #   num_posts: 5
+    #   width: 580
+    #   colorscheme: light
