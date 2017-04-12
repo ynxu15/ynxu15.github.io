@@ -7,6 +7,8 @@
   {% include LessOrMore/comments-providers/facebook %}
 {% when "duoshuo" %}
   {% include LessOrMore/comments-providers/duoshuo %}
+{% when "intensedebate" %}
+  {% include LessOrMore/comments-providers/intensedebate1 %}
 {% when "custom" %}
   {% include custom/comments %}
 {% endcase %}

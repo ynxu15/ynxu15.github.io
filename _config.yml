@@ -26,9 +26,12 @@ FB:
     #provider : duoshuo
     #duoshuo:
     #    short_name : 
-    provider : disqus
-    disqus :
-        short_name : https-ynxu15-github-io
+    #provider : disqus
+    #disqus :
+    #    short_name : https-ynxu15-github-io
+    provider : intensedebate
+    intensedebate:
+         short_name : ynxu15
     # facebook :
     #   appid : 123
     #   num_posts: 5
