@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Architecture of a paper 
-date:   2016-08-27 01:08:00 +0800
+date:   2017-04-12 17:16:00 +0800
 categories: Writing
 tag: Experience
 ---
