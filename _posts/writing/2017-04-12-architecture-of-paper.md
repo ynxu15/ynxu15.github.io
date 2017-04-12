@@ -55,5 +55,5 @@ preliminary
 --------------------------
 
 
-<h2 id="8">acknowledgements
+<h2 id="8">acknowledgements</h2>
 --------------------------
