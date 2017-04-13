@@ -17,5 +17,7 @@ Machine Learning
 ======================
 RNN tutorial [http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
 
+Long Short-Term Memory: Tutorial on LSTM Recurrent Networks [http://people.idsia.ch/~juergen/lstm/](http://people.idsia.ch/~juergen/lstm/)
+
 Data source
 ======================
