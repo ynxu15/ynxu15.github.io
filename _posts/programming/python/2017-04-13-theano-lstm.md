@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Implement LSTM with theano 
-date:   2016-08-27 01:08:00 +0800
+date:   2017-4-13 14:08:00 +0800
 categories: programming
 tag: theano
 ---
@@ -9,7 +9,7 @@ tag: theano
 * content
 {:toc}
 
-
+LSTM
 ===============
 
 Matters needing attention
