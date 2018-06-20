@@ -401,11 +401,91 @@ Speech enhancement GAN
 ## 16讲 Improved Generative Adversarial Network
 ------------------------------------------
 
+### Unified framework - f-GAN
+
+f-divergence
+
+![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/16-f-divergence' | prepend: site.baseurl}})
+
+![1529460795925](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\16-f-divergence)
+
+Fenchel Conjugate，每个convex function 都有一个 conjugate function f*
+
+![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/16-conjugate-function' | prepend: site.baseurl}})
+
+![1529461355800](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\16-conjugate-function)
+
+connected to GAN， 这一部分没有看明白
+
+![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/16-connection-gan' | prepend: site.baseurl}})
+
+![1529461815914](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\16-connection-gan)
+
+GAN 模型就是要定义一个divergence function f* 优化下面的公式最大或最小
+
+![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/16-connection-gan1' | prepend: site.baseurl}})
+
+![1529462043342](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\16-connection-gan1)
+
+GAN 模型每一轮iteration对生成模型和判别模型更新多次，或者更新一次，都是可以收敛的
+
+### WGAN
+
+最小化 Earth Mover's distance。把P的概率分布，转变成Q的概率分布
+
+![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/16-wgan' | prepend: site.baseurl}})
+
+![1529463087050](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\16-wgan)
+
+WGAN 对判别器添加了1-Lipschitz 限制。
+
+如何保证这个呢？使得权重W 的值都在c和-c之间
+
+![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/16-wgan1' | prepend: site.baseurl}})
+
+![1529463569363](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\16-wgan1)
+
+
+
+Clipping
+
+限制上图的绿色直线的斜率，防止斜率太大，无法做梯度下降
+
+
+
+WGAN训练的经验，后一层的filter数是前一层的一倍
+
+![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/16-wgan-training' | prepend: site.baseurl}})
+
+![1529464097052](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\16-wgan-training)
+
+### improved WGAN
+
+输出对输入的梯度的norm要小于1
+
+![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/16-improved-wgan' | prepend: site.baseurl}})
+
+![1529464571164](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\16-improved-wgan)
+
+> 有pair的数据时
+>
+> - Conditional GAN
+
+> 没有pair训练数据时 
+>
+> - Cycle GAN,
+> - Disco GAN
+> - ![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/16-cycle-gan' | prepend: site.baseurl}})
+> - ![1529467386852](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\16-cycle-gan)
+
 ## 17讲 RL and GAN for Sentence Generation and Chat-bot
+
 ------------------------------------------
 
 
+
 ## 18讲 机器学习，美少女化
+
 ------------------------------------------
 
 1. DCGAN
@@ -421,16 +501,118 @@ Generator 一定要fixed
 ## 20讲 Evaluation of Generative Models
 ------------------------------------------
 
+> 如何衡量一个生成模型的好坏？
+>
+> - 如果这个生成模型可以计算x为真的概率p(x)，则可以选一批不在training dataset中的数据，计算likelihood 
+> - GAN 模型没法算likelihood。
+> - 可以用生成模型生成一堆样本，然后使用混合高斯模型，计算概率
+> - 低的likelihood 有可能有高的图片质量，但是异质性比较高；同样高的likelihood，大部分图片质量也可能比较低
+
+> 模型的divergence?
+>
+> inception score 越大越好
+>
+> ![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/20-evaluation' | prepend: site.baseurl}})
+>
+> ![1529416892522](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\20-evaluation)
+
+> 判断生成模型是否创造了新的图片，还是原始图片简单变化？
+>
+> - 使用k-means 找到类似的图片，人眼判断
+
+> Missing mode
+>
+> - 生成的图片是否缺失了某些部分，比如，所有人的图像都没有戴帽子
+
 ## 21讲 Ensemble of GAN
+
 ------------------------------------------
+
+> 判断某一次训练完之后，这个生成模型不容易生成的图片类型，然后强化这个gan不能生成的图片类型
+>
+> ![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/21-ensemble-gan' | prepend: site.baseurl}})
+>
+> ![1529415818070](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\21-ensemble-gan)
+
+> 训练多个gan模型，在训练过程中交换判别器和生成器
+>
+> ![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/21-gap' | prepend: site.baseurl}})
+>
+> ![1529415937681](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\21-gap)
+
+
 
 ## 22讲 Energy-based GAN
+
 ------------------------------------------
+
+> GAN判别器的实质，学习一个评价函数f(x)，输入是一个对象x，输出是判断这个对象多好的
+>
+> 让真实的对象，如图片 x，它的评价值很大，假的对象它的值很小
+>
+> 问题是无法穷举所有的假的对象
+>
+> GAN 模型，训练判别器的时候，要把t时刻之前生成器生成的假的对象，也作为负样本来训练判别器
+>
+> ![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/22-evaluation-function.png' | prepend: site.baseurl}})
+>
+> ![1529413222646](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\22-evaluation-function.png)
+
+> Energy-based GAN (EBGAN)
+>
+> - auto-encoder 作为判别器
+> - 判别器是一个energy function
+> - 判别器对于真实图片的重构误差要够小，对假的图片重构误差比较大
+> - 但是让评价值在生成图片的位置（下图蓝色的区域）越大越好，并不能获得最好的结果
+> - 这样的结果是判别器不会费力气让真实图片的重构误差降得很低，而是选择让生成图片的重构误差变得很大
+> - 所以要加一个上限m
+> - ![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/22-energy-gan.png' | prepend: site.baseurl}})
+> - ![1529413823947](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\22-energy-gan.png)
+
+> 希望EBGAN 获得更多的不同，有区别
+>
+> ![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/22-energy-gan1.png' | prepend: site.baseurl}})
+>
+> ![1529414438156](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\22-energy-gan1)
+
+> MAGAN 给不同的阈值m。给后面生成的fake image 更小的margin
+>
+> LSGAN 判断一个生成的图片与真实图片之间的差距，如果差距小，则小的margin，如果差别大，则使用较大的margin
+>
+> ![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/22-lsgan' | prepend: site.baseurl}})
+>
+> ![1529414845320](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\22-lsgan)
+>
+> BEGAN，思想也是调margin
+>
+> ![{100*100}]({{'/figure/books/2018-06-16-Deep-Learning-class-LiHongyi/22-began' | prepend: site.baseurl}})
+>
+> ![1529415402086](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\22-began)
 
 ## 23讲 Video Generation by GAN
+
 ------------------------------------------
 
+> video generation: 
+>
+> - 生成模型输入一段video 前几帧，生成下一帧
+> - 判别模型输入几帧，前面的几帧都是真实的，最后一帧可能是生成的，判别模型要判断出来最后一帧是不是真的
+
+> Image super resolution:
+>
+> - 生成模型，输入是低分辨率的图片，输出是高分辨率图片
+> - 判别模型，判断一个图片是不是真的图片
+
+> Speech synthesis:
+>
+> - 先用一个现成的语音合成器生成一段语音
+> - 用一个生成器fine tune 这段合成语音
+> - 判别器判断一段语音是否是真实的
+
+
+
 ## 24讲 Ensemble of GAN
+
 ------------------------------------------
 
 ## 25讲 Gated RNN and Sequence Generation
