@@ -497,8 +497,34 @@ Generator 一定要fixed
 ## 19 讲 Imitation Learning
 ------------------------------------------
 
+也叫作learning by demonstration。根据人类的示范，来进行强化学习
+
+> 为什么需要Imitation learning
+>
+> - 机器没法获得显式的反馈
+> - reward在某些任务中没法定义reward
+> - 人为设计的reward 函数可能获得不可控的结果
+
+> behavior cloning 完全模仿人类的操作，这样的缺点是什么？
+>
+> - 样本数量十分有限，而且人产生的样本基本上都是正样本，负样本比较少。比如开车，负样本会导致人员伤亡
+> - 如果能够完全复制人的行为，是能够work的。但是机器不知道，哪些行为是必须的，哪些行为是无关紧要的。在模型能力有限的情况下，它可能只保留那些无关紧要的行为。
+
+>  Inverse Reinforcement Learning
+>
+> - 使用人们已经出现的行为，作为最好的正样本，机器产生的行为作为负样本，训练reward函数。即人产生的行为比机器产生的行为reward要大
+> - ![1529671807665](C:\Users\jingjing\AppData\Local\Temp\1529671807665.png)
+
+![1529672027585](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\19-imitation-gan.png)
+
+![1529672437329](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\19-imitation-gan1.png)
+
+机器以第三人视角看人的动作，如何学习？ domain adaption. transfer learning
+
+
 
 ## 20讲 Evaluation of Generative Models
+
 ------------------------------------------
 
 > 如何衡量一个生成模型的好坏？
