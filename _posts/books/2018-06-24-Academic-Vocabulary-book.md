@@ -197,6 +197,100 @@ Academic Vocabulary in Use -- Michael McCarthy Felicity O'Dell
 
 > cause 既是名词又是动词， effect是个名词。 affect =  have an effect on 
 
+## 31 Talking about ideas
+
+> 学术写作中避免使用in my opinion, It can be argued that， Most people would agree that 等个人化的表达
+>
+> discuss an idea 或者 talk/write about an idea。discuss 后没有介词
+
+## 32 Reporting what others say
+
+> Verbs
+>
+> Nouns
+>
+> According to 是用来引述别人的观点，而不是自己的。表达自己的观点用 in my opinion
+
+## 33 Analysis of results
+
+
+
+## 34 Talking about meaning
+
+> 使用前缀来猜测单词的意思，如mis
+
+## 35 Research and study aims
+
+
+
+## 36 Talking about points of view
+
+> in my point of view, from someone's point of view。 from someone's point of view, 是指从某人的角度来看问题，而不是代表这个人的观点
+
+## 37 Degrees of certainty
+
+> 作者对观点和事实有多确定
+>
+> 在写作的时候，表达观点的时候不要太绝对
+
+## 38 Presenting an argument
+
+
+
+## 39 Organising your writing
+
+> first(ly) 表示列举的第一个， at first 表示在事情的最开始阶段，表示情况会变化的
+>
+> last(ly) 表示列举的最后一个item, 与finally 相似。 at last 指人们等了好久，最后发生的事情
+
+## 40 Making a presentation 
+
+> 演示讲座的用词不如写作时的词汇正式
+
+## 41 Describing research methods
+
+> phenomenon 是单数形式，phenomena 是复数形式
+>
+> criterion 是单数， criteria是复数
+
+## 42 Classifying
+
+
+
+## 43 Making connections
+
+
+
+## 44 Comparing and contrasting
+
+> the same as, similar to 
+>
+> in contrast 表示两个观点是对立的
+
+## 45 Describing problems
+
+
+
+## 46 Describing situations
+
+
+
+## 47 Processes and procedures
+
+
+
+## 48 Describing change
+
+
+
+## 49 Evaluation and emphasis
+
+
+
+## 50 Summary and conclusion
+
+
+
 
 
 

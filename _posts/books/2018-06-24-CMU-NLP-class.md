@@ -148,3 +148,116 @@ CNN可以解决单词之间的combination 问题，如 not good
 > Structured CNN
 >
 > Graph CNN
+
+## 5 Recurrent Neural Networks 
+
+> RNN 解决了代词指代的问题。可以记住句子中的信息
+>
+> RNN的梯度下降叫做backpropagation through time (BPTT)
+
+> RNN 可以做什么应用？
+>
+> - 表示一个句子，来预测
+> - 表示句子中的上下文
+> - 句子分类
+> - conditional generation
+> - retrieval
+> - tagging，输入单词序列，输出label序列
+> - language modeling，输入单词序列，输出下一个单词序列
+> - calculating representations for parsing
+
+> Bi-RNNs 可以解决一部分距离太远，信息丢失的问题
+
+> 梯度消失的问题，解决方法LSTM, GRU
+
+> 句子间的依赖
+>
+> ![1529991550368](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-24-CMU-NLP-class\5-truncated-bptt.png)
+
+> RNN 的优点和缺点
+>
+> - 很强大，很灵活
+> - 需要大量的训练数据
+> - 句子中有小的错误时会从句子末尾传导到整个句子
+
+## 6 Efficiency tricks for neural nets
+
+> 神经网络训练慢的原因
+>
+> - softmax 等复杂的函数运算，解决方法是寻找替代操作，或者使用gpu
+> - 使用GPU，但也要减少某些操作，比如使用batching
+> - network 很大，数据量很大。解决方法是用并行化
+
+> word2vec 为什么快？
+>
+> - 负采样或者编码树代替softmax
+> - class-based softmax, 每个单词增加了一个类别。模型先预测属于哪个类别，然后给定类别预测单词
+
+> 并行化
+>
+> - within-operation parallelism
+> - operation-wise parallelism
+> - example-wise parallelism
+
+> GPU在什么情况下会有较大性能提升
+>
+> - 神经网络规模很大
+> - mini-batching
+> - optimize things properly
+
+> 加速的小技巧
+>
+> - 只需要做一次的操作，不要放在循环中
+> - ![1530007139743](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-24-CMU-NLP-class\6-speed-trick1.png)
+> - 尽量使用矩阵乘法，而不是使用循环
+> - ![1530007229492](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-24-CMU-NLP-class\6-speed-trick2.png)
+> - 减少CPU和GPU之间的数据移动
+> - ![1530007735097](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-24-CMU-NLP-class\6-speed-trick3.png)
+> - 考虑GPU的显存大小，不能超过显存大小
+
+## 7 Using/Evaluating Sentence Representations
+
+> 如何判断学到句子的表达是好的？
+>
+> - 句子分类
+> - paraphrase identification 判断两个句子是不是同一个意思
+> - ![1530010014418](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-24-CMU-NLP-class\7-paraphrase-identify.png)
+> - semantic similarity 
+> - entailment 句子间的包含关系
+> - ![1530010715385](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-24-CMU-NLP-class\7-entailment.png)
+> - retrieval， 给定一个句子，找到匹配的东西。 text->text, text->image,  anything-> anything
+
+> Efficient retrieval
+>
+> - 数据库规模太大，不太好检索，使用approximate nearest neighbor search 的方法解决
+> - ![1530011112247](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-24-CMU-NLP-class\7-efficient-retrieval.png)
+
+## 8 Conditioned Generation
+
+> 一个例子是编码解码器做翻译任务。
+>
+> 如何传递hidden state 呢？
+>
+> - ![1530085161369](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-24-CMU-NLP-class\8-pass-hidden.png)
+>
+> 产生下一个单词的方法
+>
+> - 选择概率最大的那个单词。 问题是经常产生简单的单词，偏好common words
+> - 根据概率生成单词
+> - beam search
+>
+> Ensembling
+>
+> - ![1530085379163](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-24-CMU-NLP-class\8-ensemble.png)
+> - ![1530085424729](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-24-CMU-NLP-class\8-ensemble1.png)
+
+
+
+> 如何评价模型好坏？
+>
+> - 产生结果，与reference 比较
+> - 人类评价
+> - BLEU, 与reference比较n-gram
+> - METEOR 
+> - Perplexity
+

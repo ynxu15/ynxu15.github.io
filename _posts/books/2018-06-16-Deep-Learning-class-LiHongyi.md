@@ -521,7 +521,7 @@ Generator 一定要fixed
 
 机器以第三人视角看人的动作，如何学习？ domain adaption. transfer learning
 
-
+![1529673567021](D:\同步盘\github\ynxu15.github.io\figure\books\2018-06-16-Deep-Learning-class-LiHongyi\19-third-person-imitation.png)
 
 ## 20讲 Evaluation of Generative Models
 
